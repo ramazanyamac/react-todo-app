@@ -1,24 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import { TodoProvider } from './context/TodoContext';
+import TodoList from './components/TodoList';
+import TodoModal from './components/TodoModal';
+import TodoAdd from './components/TodoAdd';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <TodoProvider>
+      <div className="relative p-4 w-full mx-auto max-w-md h-screen">
+        <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
+          <TodoAdd />
+          <div className="p-6">
+            <TodoList />
+          </div>
+        </div>
+      </div>
+      <TodoModal />
+    </TodoProvider>
   );
 }
 
